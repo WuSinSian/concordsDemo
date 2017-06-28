@@ -1,0 +1,55 @@
+<div class="container">
+  <h3>以範本為主的表單開發方式</h3>
+  <form #f="ngForm" (ngSubmit)="addTodo(data)">
+
+    <div class="form-group">
+      <label>Account
+        <input type="text" class="form-control"
+             ngModel name="account"  #account="ngModel"  [(ngModel)]='data.account'
+             ngModel required  ngModel minlength="3" ngModel pattern ="[0-9]*"
+             [placeholder] = "placeholder">
+      </label>
+    </div>
+    <div *ngIf="account.errors && account.touched" style="color: red">
+      <div *ngIf="account.hasError('pattern')"> 請輸入數字 </div>
+      <div *ngIf="account['errors']?.required">請輸入帳號</div>
+    </div>
+    <div class="form-group">
+      <label>
+        firstName
+        <input type="text" name="firstName" class="form-control"
+        [(ngModel)]="data.firstName"
+         ngModel required  >
+      </label>
+      <label>
+        LastName
+        <input type="text" name="lastName" class="form-control"
+        [(ngModel)]="data.lastName" ngModel required >
+      </label>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="f.invalid">送出表單</button>
+  </form>
+
+  <div class="alert alert-success" role="alert">
+    <pre>
+    f.invalid =　{{ f.invalid |json }}
+    account.valid = {{ account['valid'] }}
+    account.touched = {{ account['touched'] }}
+
+    data = {{ data | json }}
+
+    Response = {{ Response | json }}
+    form.value = {{f.value|json}}
+    </pre> field value
+    <UL>
+      <LI> Account:{{account.value}}</LI>
+      <LI> firstName:{{data.firstName}}</LI>
+      <LI> lastName:{{data.lastName}}</LI>
+    </UL>
+  </div>
+
+</div>
+
+<!--<form class="main" #f="ngForm" (ngSubmit)="onSubmit(f)">-->
+<!--<form class="form-horizontal"  #f="ngForm" (ngSubmit)="doSubmit(f, $event)" >-->
+<!--<div *ngIf="f.controls['account'].hasError('required')">請輸入帳號</div>-->

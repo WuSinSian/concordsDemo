@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>以程式碼為主的表單開發方式</h2>
+  <form #f="ngForm" [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      account
+      <input type="text" class="form-control" formControlName='account'>
+    </label>
+
+    <span *ngIf="form.invalid"> 請檢查欄位
+        <span *ngIf = "form.controls['account'].hasError('minlength')"> 請輸入數字3以上</span>
+    </span>
+    <div class="form-group" formGroupName="name">
+      <label>
+          firstName
+          <input type="text" class="form-control" formControlName='firstName'  >
+      </label>
+      <label>
+          LastName
+          <input type="text" class="form-control" formControlName='lastName' >
+        </label>
+    </div>
+
+    <div>
+      <label>sex :</label>
+      <label class="oRadio">
+        <input type="radio" id="male"  formControlName="sex" value="male"> 男
+      </label>
+      <label class="oRadio">
+        <input type="radio" id="female"  formControlName="sex" value="female"> 女
+      </label>
+    </div>
+
+    <div class="form-group" formArrayName='tel'>
+      <label>
+      <input type="text"  class="form-control" *ngFor="let item of form.controls['tel'].controls; let i = index" [formControlName]="i">
+      </label>
+    </div>
+
+    <button class="btn btn-primary" type="button" (click)="addTel()">增加電話欄位</button>
+    <button class="btn btn-primary" type="submit" [disabled]='form.invalid'>送出表單 </button>
+
+  </form>
+  <div class="alert alert-success" role="alert">
+    <pre>
+  {{form.value|json}}
+</pre>
+
+    <pre>
+form.get('account').value = {{ form.get('account')['value'] }}
+form.get('account').valid = {{ form.get('account').valid}}
+form.get('account').invalid = {{ form.get('account').invalid}}
+form.get('account').touched = {{ form.get('account').touched}}
+</pre>
+
+    <hr>
+  </div>
+</div>
+
+
+<!--<span *ngIf = "form.controls['account'].hasError('minlength')"> 請輸入數字3以上</span>
+    <span *ngIf = "form.controls['account'].hasError('required')"> 請輸入數字</span>-->
+<!--<span *ngIf = "form.controls['account'].hasError('minLength')"> 請輸3以上</span>-->
+<!--<span *ngIf = "form.get('account')['errors']?.required"> 請輸入標題</span>-->
