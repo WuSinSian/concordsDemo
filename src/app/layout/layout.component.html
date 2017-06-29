@@ -1,0 +1,25 @@
+<div nav class="navbar navbar-inverse bg-inverse">
+<UL class="navbar-nav">
+   <li class="nav-item active" >
+    <a class="navbar-brand" routerLink="/" routerLinkActive = "active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+  </li>
+  <li class="nav-item active">
+    <a class="navbar-brand" routerLink="/form/class" routerLinkActive = "active">class</a>
+  </li>
+
+  <li class="nav-item active">
+    <a class="navbar-brand" routerLink="/form/reactive" routerLinkActive = "active">reactive</a>
+  </li>
+  <li>
+    <a class="navbar-brand" routerLink="/login" routerLinkActive = "active">login</a>
+  </li>
+  <li class="nav-item active">
+    <ul class="navbar-nav" >
+      <li routerLinkActive = "active" ><a class="navbar-brand" routerLink='cards/jointcard'>聯名卡</a></li>
+      <li routerLinkActive = "active" ><a class="navbar-brand" routerLink='cards/jointcard'>愛心卡</a></li>
+      <li routerLinkActive = "active" ><a class="navbar-brand"  routerLink='cards/jointcard'>沒用卡</a></li>
+    </ul>
+  </li>
+</UL>
+</div>
+  <router-outlet></router-outlet>

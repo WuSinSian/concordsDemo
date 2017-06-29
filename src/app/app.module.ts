@@ -8,6 +8,8 @@ import { ReactiveComponent } from './form/reactive/reactive.component';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 import { JointcardComponent } from './cards/jointcard/jointcard.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { JointcardComponent } from './cards/jointcard/jointcard.component';
     AppComponent,
     ClassComponent,
     ReactiveComponent,
-    JointcardComponent
+    JointcardComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
