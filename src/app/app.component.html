@@ -1,9 +1,12 @@
 <UL>
-  <li>
-    <a routerLink="/class.component">class</a>
+   <li>
+    <a routerLink="/" routerLinkActive = "active" [routerLinkActiveOptions]="{exact:true}">Home</a>
   </li>
   <li>
-    <a routerLink="/reactive.component">reactive</a>
+    <a routerLink="/class.component" routerLinkActive = "active">class</a>
+  </li>
+  <li>
+    <a routerLink="/reactive.component" routerLinkActive = "active">reactive</a>
   </li>
 </UL>
 <div>
