@@ -37,6 +37,9 @@ export class ClassComponent implements OnInit {
     };
   }
 
+
+
+
     // onSubmit(form){
   //   this.data.firstName = form.controls.firstName.value;
   //   console.log(form);
@@ -68,6 +71,13 @@ export class ClassComponent implements OnInit {
         console.log('POSTED'); }  );
       // .subscribe( data => console.log(data + 'is posted'));
    }
+
+  getSBranch() {
+    this.http.get('http://192.168.199.212/BillService/QueryService.aspx' , '0' )
+
+
+  }
+
 
   checkValid(field, form) {
      return form['submitted'] || field['touched'] && field['invalid'];
