@@ -8,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 
 
-
 const routes: Routes = [
   {path: '', component: LayoutComponent,
     children: [
@@ -22,9 +21,7 @@ const routes: Routes = [
    {path: 'login', component: LoginComponent},
   fallbackRoute
 ];
-   // { path: 'jointcard', component: JointcardComponent }
-// { path: '', redirectTo: 'jointcard.component', pathMatch : 'full' }
-  // { path: '', redirectTo: 'class.component', pathMatch: 'full' }, // 定義轉向
+
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     enableTracing: true,
@@ -34,3 +31,8 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+  // { path: 'jointcard', component: JointcardComponent }
+  // { path: '', redirectTo: 'jointcard.component', pathMatch : 'full' }
+  // { path: '', redirectTo: 'class.component', pathMatch: 'full' }, // 定義轉向
